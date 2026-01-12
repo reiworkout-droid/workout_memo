@@ -1,5 +1,8 @@
 <?php
 //DB接続
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include('functions.php');
 
 if (
@@ -13,7 +16,8 @@ $menu = $_POST['menu'];
 $categories = $_POST['categories'];
 
 // DB接続
-$pdo = connect_to_db();
+// $pdo = connect_to_db();//さくら用
+$pdo = connect_to_db_pre();//ローカルホスト用
 
 $sql = 'INSERT INTO workout_menu(id, menu, categories, created_at, updated_at) VALUES(NULL, :menu, :categories, now(), now())';
 
@@ -28,7 +32,7 @@ try {
   exit();
 }
 
-header("Location:index.php");
+header("Location:menu.php");
 exit();
 
 ?>
