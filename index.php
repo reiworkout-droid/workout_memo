@@ -78,19 +78,21 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </select>
                 </div>
                 <div class="mainText">
-                    <div class="weight">
-                        <input type="number" name="weight"><span>kg</span>
-                    </div>
-                    <div class="reps">
-                        <input type="number" name="reps"><span>回</span>
+                    <div class="numberText">
+                        <div class="weight">
+                            <input type="number" name="weight"><span>kg</span>
+                        </div>
+                        <div class="reps">
+                            <input type="number" name="reps"><span>回</span>
+                        </div>
+                        <div class="max">
+                            1RM: 
+                            <span class="rmDisplay">-</span>
+                            <input type="hidden" name="max" class="rm"><span>kg</span>
+                        </div>
                     </div>
                     <div class="memo">
                         メモ: <input type="text" name="memo">
-                    </div>
-                    <div class="max">
-                        1RM: 
-                        <span class="rmDisplay">---</span>
-                        <input type="hidden" name="max" class="rm"><span>kg</span>
                     </div>
                 </div>
                 <div class="setButton">
@@ -102,8 +104,10 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="button" class="addForm">＋</button>
             </div>
 
-
             <input type="hidden" name="date" value="<?= htmlspecialchars($date) ?>">
+        
+            <button id="saveButton">保存</button>
+        
         </fieldset>
     </form>
 <script>
@@ -111,17 +115,19 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
     //セット数のテキストエリアを追加
     const set = 
     `<div class="mainText">
-        <div class="weight">
-            <input type="number" name="weight"><span>kg</span>
-        </div>
-        <div class="reps">
-            <input type="number" name="reps"><span>回</span>
+        <div class="numberText">
+            <div class="weight">
+                <input type="number" name="weight"><span>kg</span>
+            </div>
+            <div class="reps">
+                <input type="number" name="reps"><span>回</span>
+            </div>
+            <div class="max">
+                1RM: <input type="hidden" name="max" class="rm"><span>kg</span>
+            </div>
         </div>
         <div class="memo">
             メモ: <input type="text" name="memo">
-        </div>
-        <div class="max">
-            1RM: <input type="hidden" name="max" class="rm"><span>kg</span>
         </div>
     </div>`;
 
@@ -160,21 +166,23 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </select>
         </div>
         <div class="mainText">
-            <div class="weight">
-                <input type="number" name="weight"><span>kg</span>
-            </div>
-            <div class="reps">
-                <input type="number" name="reps"><span>回</span>
+            <div class="numberText">
+                <div class="weight">
+                    <input type="number" name="weight"><span>kg</span>
+                </div>
+                <div class="reps">
+                    <input type="number" name="reps"><span>回</span>
+                </div>
+                <div class="max">
+                    1RM: <input type="hidden" name="max" class="rm"><span>kg</span>
+                </div>
             </div>
             <div class="memo">
                 メモ: <input type="text" name="memo">
             </div>
-            <div class="max">
-                1RM: <input type="hidden" name="max" class="rm"><span>kg</span>
+            <div class="setButton">
+                <button type="button" class="addSet">＋</button>
             </div>
-        </div>
-        <div class="setButton">
-            <button type="button" class="addSet">＋</button>
         </div>
     </div>`;
 
