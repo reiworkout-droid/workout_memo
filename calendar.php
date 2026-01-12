@@ -64,7 +64,8 @@ function changeMonth(diff) {
 }
 
 function selectDate(year, month, day) {
-    window.location.href = `../index.php?date=${year}-${month+1}-${day}`;
+    const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    window.location.href = `index.php?date=${date}`;
 }
 
 // 初期描画

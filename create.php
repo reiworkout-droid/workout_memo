@@ -22,8 +22,8 @@ $max = $_POST['max'];
 $date = $_POST['date'];
 
 // DB接続
-$pdo = connect_to_db();//さくら用
-// $pdo = connect_to_db_pre();//ローカルホスト用
+// $pdo = connect_to_db();//さくら用
+$pdo = connect_to_db_pre();//ローカルホスト用
 
 $sql = 'INSERT INTO workout_menu(id, menu, weight, reps, date,created_at, updated_at) VALUES(NULL, :menu, :weight, reps, date, now(), now())';
 
