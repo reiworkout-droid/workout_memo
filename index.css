@@ -34,6 +34,27 @@ h1 {
 
 .numbers {
   display: flex;
-  gap: 3px;
+  gap: 6px;
   margin-top: 8px;
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  margin: 24px;
+}
+
+#addButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #34c759; /* iOSっぽいグリーン */
+  color: #fff;
+  font-size: 28px;
+  box-shadow: 0 8px 16px rgba(52, 199, 89, 0.4);
+}
+
+#addButton:active {
+  transform: scale(0.95);
 }

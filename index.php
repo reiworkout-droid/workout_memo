@@ -33,25 +33,30 @@ $categoryLabels = [
     'biceps' => '二頭',
 ];
 
+$output = '';
+
 foreach ($result as $record) {
-    $category = $categoryLabels[$record['categories']] ?? $record['categories'];
+    $category = $categoryLabels[$record['categories']] ?? $record['categories']; 
 
     $output .= "
         <div class='workout-card'>
+            <div>
+                <input type='hidden' name='id' value='{$record['id']}'>
+            </div>
             <div class='category'>部位:{$category}</div>
             <div class='menu'>{$record['menu']}</div>
 
             <div class='numbers'>
-                <span class='weight'>{$record['weight']}kg</span>
-                <span class='reps'>{$record['reps']}回</span>
-                <span class='max'>1RM: {$record['max']}kg</span>
+                <div class='weight'>{$record['weight']}kg</div>
+                <div class='reps'>{$record['reps']}回</div>
+                <div class='max'>1RM: {$record['max']}kg</div>
             </div>
 
             <div class='memo'>メモ: {$record['memo']}</div>
 
             <div class='actions'>
-                <a href='edit.php?id={$record['id']}'>edit</a>
-                <a href='delete.php?id={$record['id']}'>delete</a>
+                <a href='edit.php?id={$record['id']}'>編集</a>
+                <a href='delete.php?id={$record['id']}'>削除</a>
             </div>
         </div>
     ";
@@ -68,18 +73,26 @@ foreach ($result as $record) {
     <title>workout_memo</title>
 </head>
 <body>
-            <h1>今日のトレーニング</h1>
-            <div class="selectedDate">
-                📅 <?= htmlspecialchars($date) ?>
-                <button type="button" id="dateSelect">日付選択</button>
-            </div>
-            <?= $output ?>
+    <h1>今日のトレーニング</h1>
+    <div class="selectedDate">
+        📅 <?= htmlspecialchars($date) ?>
+        <button type="button" id="dateSelect">日付選択</button>
+    </div>
+    <?= $output ?>
+    <div id="button">
+        <button type="button" id="addButton">+</button>
+    </div>
 
         
 <script>
 // カレンダークリックアクション
 document.getElementById('dateSelect').addEventListener('click', () => {
     window.location.href = 'calendar.php';
+});
+
+//追加ボタンクリックアクション
+document.getElementById('addButton').addEventListener('click', () => {
+    window.location.href = 'input.php';
 });
 
 </script>    
