@@ -38,16 +38,16 @@ foreach ($result as $record) {
 
     $output .= "
         <div class='workout-card'>
-            <div class='category'>{$category}</div>
+            <div class='category'>部位:{$category}</div>
             <div class='menu'>{$record['menu']}</div>
 
             <div class='numbers'>
                 <span class='weight'>{$record['weight']}kg</span>
                 <span class='reps'>{$record['reps']}回</span>
-                <span class='max'>{$record['max']}</span>
+                <span class='max'>1RM: {$record['max']}kg</span>
             </div>
 
-            <div class='memo'>{$record['memo']}</div>
+            <div class='memo'>メモ: {$record['memo']}</div>
 
             <div class='actions'>
                 <a href='edit.php?id={$record['id']}'>edit</a>
@@ -56,21 +56,6 @@ foreach ($result as $record) {
         </div>
     ";
 }
-// $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// //種目用
-// $sql = 'SELECT menu, categories FROM workout_menu ORDER BY categories, menu';
-
-// $stmt = $pdo->prepare($sql);
-
-// try {
-//   $status = $stmt->execute();
-// } catch (PDOException $e) {
-//   echo json_encode(["sql error" => "{$e->getMessage()}"]);
-//   exit();
-// }
-
-// $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 

@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #f2f3f5;
+  color: #222;
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.selectedDate {
+    display: flex;
+    justify-content: right;
+}
+
+.workout-card {
+    padding: 16px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.category,
+.menu {
+  margin-bottom: 12px;
+}
+
+.numbers {
+  display: flex;
+  gap: 3px;
+  margin-top: 8px;
+}
