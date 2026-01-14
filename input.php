@@ -118,7 +118,7 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             // 今いる textArea を取得
             const textArea = event.target.closest('.textArea');
             const setButton = event.target.closest('.setButton');
-            
+
             // 選択中の値を取得 ← ★これが足りなかった
             const category = textArea.querySelector('.categorySelect')?.value ?? '';
             const menu     = textArea.querySelector('.menuSelect')?.value ?? '';
