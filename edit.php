@@ -1,8 +1,8 @@
 <?php
 include('functions.php');
 
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 $id = $_GET['id'];
 
@@ -59,7 +59,7 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <fieldset>
             <legend>今日のトレーニング</legend>
             <div class="selectedDate">
-                📅 <?= htmlspecialchars($result['date']) ?>                <button type="button" id="dateSelect">日付選択</button>
+                📅 <?= htmlspecialchars($result['date']) ?>
             </div>
             <div class="textArea">
                 <div>
@@ -181,9 +181,6 @@ document.addEventListener('input', function (event) {
   rmHidden.value = rm.toFixed(1);
 });
 
-document.getElementById('dateSelect').addEventListener('click', () => {
-    window.location.href = 'calendar.php';
-});
 
 </script>
 </body>

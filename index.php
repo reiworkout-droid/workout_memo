@@ -5,8 +5,8 @@ $date = $_GET['date'] ?? date('Y-m-d'); // 未指定なら今日
 //DB接続
 include('functions.php');   
 
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 //選択している日又は当日のデータのみを取得する
 $sql = 'SELECT * FROM workout_memo WHERE date = :date';

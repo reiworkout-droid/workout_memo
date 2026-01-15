@@ -23,8 +23,8 @@ $memo = $_POST['memo'];
 $date = $_POST['date'];
 
 // DB接続
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 $sql = 'INSERT INTO workout_memo(id, categories, menu, weight, reps, max, memo, date, created_at, updated_at) VALUES(NULL, :categories, :menu, :weight, :reps, :max, :memo, :date, now(), now())';
 
