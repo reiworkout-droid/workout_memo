@@ -2,13 +2,16 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>筋トレメモカレンダー</title>
 <style>
   body { font-family: sans-serif; padding: 20px; }
-  table { border-collapse: collapse; width: 100%; max-width: 400px; }
+  table { border-collapse: collapse; width: 100%; max-width: 100%; }
   th, td { border: 1px solid #ccc; text-align: center; padding: 8px; cursor: pointer; }
+  @media (max-width: 480px) { th, td { padding: 4px; font-size: 14px; } }
   th { background-color: oklch(0.9 0.15 500);}
   td.selected { background-color: #87CEFA; }
+  #calendarHeader, #prevMonth, #nextMonth {font-size: 20px; margin: 8px 0px;}
 </style>
 </head>
 <body>

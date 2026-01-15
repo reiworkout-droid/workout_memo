@@ -5,8 +5,8 @@ $date = $_GET['date'] ?? date('Y-m-d'); // 未指定なら今日
 //DB接続
 include('functions.php');   
 
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 //カテゴリー
 $sql = 'SELECT DISTINCT categories FROM workout_menu ORDER BY categories';
@@ -55,7 +55,6 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <legend>今日のトレーニング</legend>
             <div class="selectedDate">
                 📅 <?= htmlspecialchars($date) ?>
-                <button type="button" id="dateSelect">日付選択</button>
             </div>
             <div class="textArea">
                 <div class="categories">
@@ -274,9 +273,6 @@ document.addEventListener('input', function (event) {
   rmHidden.value = rm.toFixed(1);
 });
 
-document.getElementById('dateSelect').addEventListener('click', () => {
-    window.location.href = 'calendar.php';
-});
 
 </script>    
 </body>
