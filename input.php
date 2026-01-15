@@ -6,7 +6,7 @@ $date = $_GET['date'] ?? date('Y-m-d'); // 未指定なら今日
 include('functions.php');   
 
 $pdo = connect_to_db();//さくら用
-// $pdo = connect_to_db_pre();//ローカルホスト用
+    // $pdo = connect_to_db_pre();//ローカルホスト用
 
 //カテゴリー
 $sql = 'SELECT DISTINCT categories FROM workout_menu ORDER BY categories';
@@ -56,6 +56,7 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="selectedDate">
                 📅 <?= htmlspecialchars($date) ?>
             </div>
+            <button type="button" id="addMenu">メニュー追加</button>
             <div class="textArea">
                 <div class="categories">
                     <select name="categories[]" class="categorySelect" required>
@@ -273,7 +274,9 @@ document.addEventListener('input', function (event) {
   rmHidden.value = rm.toFixed(1);
 });
 
-
+document.getElementById('addMenu').addEventListener('click', () => {
+    window.location.href = 'menu.php'
+});
 </script>    
 </body>
 </html>
