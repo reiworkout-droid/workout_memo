@@ -1,8 +1,8 @@
 <?php
 include('functions.php');
 
-$pdo = connect_to_db();//さくら用
-// $pdo = connect_to_db_pre();//ローカルホスト用
+// $pdo = connect_to_db();//さくら用
+$pdo = connect_to_db_pre();//ローカルホスト用
 
 $id = $_GET['id'];
 

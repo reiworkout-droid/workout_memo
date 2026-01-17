@@ -1,6 +1,7 @@
 <?php
 //DB接続
 include('functions.php');
+session_start();
 
 if (
     empty($_POST['categories']) ||
@@ -13,7 +14,7 @@ if (
 ) {
     exit('paramError');
 }
-
+$user_id = $_SESSION['user_id'];
 $categories = $_POST['categories'];
 $menu = $_POST['menu'];
 $weight = $_POST['weight'];
@@ -23,10 +24,10 @@ $memo = $_POST['memo'];
 $date = $_POST['date'];
 
 // DB接続
-$pdo = connect_to_db();//さくら用
-// $pdo = connect_to_db_pre();//ローカルホスト用
+// $pdo = connect_to_db();//さくら用
+$pdo = connect_to_db_pre();//ローカルホスト用
 
-$sql = 'INSERT INTO workout_memo(id, categories, menu, weight, reps, max, memo, date, created_at, updated_at) VALUES(NULL, :categories, :menu, :weight, :reps, :max, :memo, :date, now(), now())';
+$sql = 'INSERT INTO workout_memo(id, user_id, categories, menu, weight, reps, max, memo, date, created_at, updated_at) VALUES(NULL, :user_id, :categories, :menu, :weight, :reps, :max, :memo, :date, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
@@ -37,6 +38,7 @@ for ($i = 0; $i < count($weight); $i++) {
         continue;
     }
 
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->bindValue(':categories', $categories[$i], PDO::PARAM_STR);
     $stmt->bindValue(':menu', $menu[$i], PDO::PARAM_STR);
     $stmt->bindValue(':weight', $weight[$i], PDO::PARAM_INT);

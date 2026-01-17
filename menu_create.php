@@ -16,8 +16,8 @@ $menu = $_POST['menu'];
 $categories = $_POST['categories'];
 
 // DB接続
-$pdo = connect_to_db();//さくら用
-// $pdo = connect_to_db_pre();//ローカルホスト用
+// $pdo = connect_to_db();//さくら用
+$pdo = connect_to_db_pre();//ローカルホスト用
 
 $sql = 'INSERT INTO workout_menu(id, menu, categories, created_at, updated_at) VALUES(NULL, :menu, :categories, now(), now())';
 
