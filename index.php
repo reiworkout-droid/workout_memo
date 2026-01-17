@@ -4,15 +4,21 @@ $date = $_GET['date'] ?? date('Y-m-d'); // 未指定なら今日
 
 //DB接続
 include('functions.php');   
+session_start();
+check_session_id();
 
-$pdo = connect_to_db();//さくら用
-// $pdo = connect_to_db_pre();//ローカルホスト用
+// $pdo = connect_to_db();//さくら用
+$pdo = connect_to_db_pre();//ローカルホスト用
+
+$user_id = $_SESSION['user_id'];
+
 
 //選択している日又は当日のデータのみを取得する
-$sql = 'SELECT * FROM workout_memo WHERE date = :date';
+$sql = 'SELECT * FROM workout_memo WHERE date = :date AND user_id = :user_id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':date', $date, PDO::PARAM_STR);
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 
 try {
   $status = $stmt->execute();
