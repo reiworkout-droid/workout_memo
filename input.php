@@ -7,8 +7,8 @@ include('functions.php');
 session_start();
 check_session_id();
 
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 //カテゴリー
 $sql = 'SELECT DISTINCT categories FROM workout_menu ORDER BY categories';

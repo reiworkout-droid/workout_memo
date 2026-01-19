@@ -10,8 +10,8 @@ if (
 
 $id = $_GET['id'];
 
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 // SQL実行
 //テーブルから削除

@@ -26,8 +26,8 @@ $memo = $_POST['memo'][0];
 $date = $_POST['date'];
 $id = $_POST['id'];
 
-// $pdo = connect_to_db();//さくら用
-$pdo = connect_to_db_pre();//ローカルホスト用
+$pdo = connect_to_db();//さくら用
+// $pdo = connect_to_db_pre();//ローカルホスト用
 
 // SQL実行
 $sql = 'UPDATE workout_memo SET categories=:categories, menu=:menu, weight=:weight, reps=:reps, max=:max, memo=:memo, date=:date, updated_at=now() WHERE id=:id';
