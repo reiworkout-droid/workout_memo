@@ -12,9 +12,9 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 //サクラ
-// $pdo = connect_to_db();
+$pdo = connect_to_db();
 //ローカルホスト
-$pdo = connect_to_db_pre();
+// $pdo = connect_to_db_pre();
 
 $sql = 'SELECT COUNT(*) FROM users_table WHERE username=:username';
 

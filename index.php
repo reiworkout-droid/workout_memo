@@ -84,6 +84,9 @@ foreach ($result as $record) {
         📅 <?= htmlspecialchars($date) ?>
         <button type="button" id="dateSelect">日付選択</button>
     </div>
+    <div class="logoutLink">
+        <a href="logout.php">ログアウト</a>
+    </div>
     <?= $output ?>
     <div id="button">
         <button type="button" id="addButton">+</button>
